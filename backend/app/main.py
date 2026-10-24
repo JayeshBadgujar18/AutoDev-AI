@@ -17,8 +17,6 @@ app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000"], allo
 @app.on_event("startup")
 async def startup() -> None:
     await init_db()
-    async with get_db().__anext__() as _:
-        pass
 
 
 @app.get("/health")
